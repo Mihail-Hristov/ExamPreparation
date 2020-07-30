@@ -4,7 +4,7 @@ public class NikuldensCharity {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String currentMassage = scanner.next();
+        String currentMassage = scanner.nextLine();
 
         String input = scanner.nextLine();
         while (!"Finish".equals(input)){
