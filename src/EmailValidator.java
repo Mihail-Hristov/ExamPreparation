@@ -1,4 +1,3 @@
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,34 +14,21 @@ public class EmailValidator {
             String[] tokens = input.split(" ");
             String command = tokens[0];
 
-            switch (command){
-                case "Make":
+            switch (command) {
+                case "Make" -> {
                     String toCase = tokens[1];
-                    email = makeUpperOrLowerCase(email,toCase);
-
-                    break;
-
-                case "GetDomain":
+                    email = makeUpperOrLowerCase(email, toCase);
+                }
+                case "GetDomain" -> {
                     int count = Integer.parseInt(tokens[1]);
                     getDomain(email, count);
-
-                    break;
-
-                case "GetUsername":
-                    getUsername(email);
-
-                    break;
-
-                case "Replace":
+                }
+                case "GetUsername" -> getUsername(email);
+                case "Replace" -> {
                     char charForReplace = tokens[1].charAt(0);
-                    replaceChar(email, charForReplace);
-
-                    break;
-
-                case "Encrypt":
-                    encrypt(email);
-
-                    break;
+                    email = replaceChar(email, charForReplace);
+                }
+                case "Encrypt" -> encrypt(email);
             }
 
             input = scanner.nextLine();
@@ -71,7 +57,7 @@ public class EmailValidator {
 
     public static void getUsername(String email){
         if (!email.contains("@")){
-            System.out.println(String.format("The email %s doesn't contain the @ symbol.",email));
+            System.out.printf("The email %s doesn't contain the @ symbol.%n",email);
         }else {
             int toIndex = email.indexOf('@');
             String tempSubstring = email.substring(0,toIndex);
