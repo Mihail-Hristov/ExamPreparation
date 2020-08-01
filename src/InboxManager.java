@@ -6,7 +6,7 @@ public class InboxManager {
 
         Map<String, List<String>> sentEmails = new TreeMap<>();
 
-        String input = scanner.next();
+        String input = scanner.nextLine();
         while (!"Statistics".equals(input)){
             String[] tokens = input.split("->");
             String command = tokens[0];
@@ -31,7 +31,7 @@ public class InboxManager {
 
             }
 
-            input = scanner.next();
+            input = scanner.nextLine();
         }
 
         int countUsername = sentEmails.size();
@@ -66,7 +66,7 @@ public class InboxManager {
         if (sentEmail.containsKey(username)){
             sentEmail.remove(username);
         }else {
-            System.out.println(String.format("$s  not found!",username));
+            System.out.println(String.format("%s not found!",username));
         }
     }
 }
