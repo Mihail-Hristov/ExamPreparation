@@ -2,6 +2,7 @@ import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Judge {
     public static void main(String[] args) {
@@ -16,7 +17,15 @@ public class Judge {
             String contest = tokens[1];
             int points = Integer.parseInt(tokens[2]);
 
-
+            contests.putIfAbsent(contest, new TreeMap<>());
+            contests.get(contest).putIfAbsent(username, 0);
+            if (!contests.get(contest).containsKey(username)){
+                contests.get(contest).put(username, points);
+            }else{
+                if(contests.get(contest).get(username) < points){
+                    contests.get(contest).put(username, points);
+                }
+            }
 
 
             input = scanner.nextLine();
