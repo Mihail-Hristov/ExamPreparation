@@ -95,25 +95,21 @@ public class ReVolt {
                 if (checkForGoOut(newRowIndex, field)) {
                     newRowIndex = field.length - 1;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             }else if (command.equals("down")) {
                 newRowIndex ++;
                 if (checkForGoOut(newRowIndex, field)) {
                     newRowIndex = 0;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             } else if (command.equals("left")) {
                 newColIndex --;
                 if (checkForGoOut(newColIndex, field)) {
                     newColIndex = field.length - 1;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             } else if (command.equals("right")) {
                 newColIndex ++;
                 if (checkForGoOut(newColIndex, field)) {
                     newColIndex = 0;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             }
         } else if (field[newRowIndex][newColIndex] == 'T') {
             if (command.equals("up")) {
@@ -121,32 +117,27 @@ public class ReVolt {
                 if (checkForGoOut(newRowIndex, field)) {
                     newRowIndex = 0;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             }else if (command.equals("down")) {
                 newRowIndex --;
                 if (checkForGoOut(newRowIndex, field)) {
                     newRowIndex = field.length - 1;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             } else if (command.equals("left")) {
-                newColIndex ++;
+                newColIndex++;
                 if (checkForGoOut(newColIndex, field)) {
                     newColIndex = 0;
                 }
-                field[newRowIndex][newColIndex] = 'f';
-            } else if (command.equals("right")) {
+            }else if (command.equals("right")) {
                 newColIndex --;
                 if (checkForGoOut(newColIndex, field)) {
                     newColIndex = field.length - 1;
                 }
-                field[newRowIndex][newColIndex] = 'f';
             }
         }else if (field[newRowIndex][newColIndex] == 'F') {
             findFinish = true;
-            field[newRowIndex][newColIndex] = 'f';
         }else if (field[newRowIndex][newColIndex] == '-') {
-            field[newRowIndex][newColIndex] = 'f';
         }
+        field[newRowIndex][newColIndex] = 'f';
         playerRow = newRowIndex;
         playerCol = newColIndex;
     }
